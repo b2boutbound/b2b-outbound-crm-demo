@@ -86,6 +86,60 @@ Self-hosted on Windows, macOS or Linux (Python 3.10). Your own mailbox, your own
 AI key (Gemini / DeepSeek / OpenAI), local SQLite database with backups. No
 telemetry, no accounts on our servers, no per-seat pricing, no subscription.
 
+## Email integration — what works today
+
+The email center connects to **your own mailbox** over SMTP/IMAP. There is no
+sending service in the middle, no per-email fee and no markup on your mail.
+
+| Your mailbox | Connection |
+|---|---|
+| Gmail (personal) | ✅ App password (2-step verification required) |
+| Outlook.com / Hotmail / Live (personal) | ✅ App password |
+| Google Workspace (company domain) | ✅ App password — an admin can disable app passwords |
+| Zoho Mail, Alibaba Mail, Tencent Exmail | ✅ Username + password |
+| Mailbox included with your web hosting (cPanel, Bluehost, HostGator, …) | ✅ Username + password |
+| Self-hosted mail server (VPS, mailcow, Mail-in-a-Box, …) | ✅ Username + password |
+| Microsoft 365 / Exchange Online (company domain) | ⚠️ Works after your admin enables **Authenticated SMTP** for the mailbox — one setting, steps below |
+
+### Gmail (personal and Google Workspace)
+
+1. Google Account → **Security** → turn on **2-Step Verification**
+2. **Security → App passwords** → create one for "Mail"
+3. In the app use: SMTP `smtp.gmail.com` port **465** (SSL) · IMAP
+   `imap.gmail.com` port **993** (SSL) · username = full address · password =
+   the 16-character app password
+
+### Outlook.com / Hotmail / Live (personal)
+
+SMTP `smtp-mail.outlook.com` port **587** (STARTTLS) · IMAP
+`outlook.office365.com` port **993** (SSL) · password = app password (create it
+after enabling two-step verification).
+
+### Microsoft 365 / Exchange Online (company domain)
+
+Ask your admin to enable **Authenticated SMTP** on the mailbox — 2 minutes:
+
+```
+Exchange admin center → Recipients → Mailboxes → select the mailbox
+→ Email apps → tick "Authenticated SMTP" → Save
+```
+
+Or with PowerShell:
+
+```powershell
+Set-CasMailbox -Identity user@yourdomain.com -SmtpClientAuthenticationDisabled $false
+```
+
+If the mailbox uses multi-factor authentication, also create an app password.
+Setup support is included with the license — email us and we will walk you (or
+your IT) through it.
+
+### Any other mailbox
+
+Use the SMTP and IMAP host, port and password from your provider's help pages.
+If your provider gives you both SSL (465/993) and STARTTLS (587/143) ports,
+either works.
+
 ## Get the licensed build
 
 **Free:** the live demo above runs the full workflow with a sample workspace, so
