@@ -206,6 +206,13 @@ Yes — that is the point. Self-hosting is the default, not an add-on.
 - Live demo: https://demo.goprospectflow.com/
 - Email: support@goprospectflow.com
 
+## Roadmap
+
+- **Microsoft 365 OAuth sign-in** — connect an Exchange Online mailbox without
+  asking your admin to enable Authenticated SMTP *(planned)*
+- More industry import templates
+- Additional AI providers and languages
+
 ## Changelog
 
 See [CHANGELOG.md](CHANGELOG.md).
