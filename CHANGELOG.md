@@ -52,7 +52,7 @@
 ### Added
 
 - Gumroad checkout for the $99 full version:
-  https://crmlokal.gumroad.com/l/ProspectFlow
+  https://crmlokal.gumroad.com/l/b2b-outbound-crm
 
 ## [1.0.0] - 2026-09-07
 
