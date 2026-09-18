@@ -154,7 +154,7 @@ you can evaluate everything before paying.
 - 1 year of updates and setup support
 - Team seats included
 
-[**Buy on Gumroad**](https://crmlokal.gumroad.com/) · Website: https://goprospectflow.com
+[**Buy on Gumroad**](https://crmlokal.gumroad.com/l/b2b-outbound-crm) · Website: https://goprospectflow.com
 
 Questions before buying: **support@goprospectflow.com**
 
